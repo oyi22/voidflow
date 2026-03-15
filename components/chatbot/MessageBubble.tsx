@@ -23,7 +23,7 @@ export default function MessageBubble() {
         clearInterval(interval)
         setTyping(false)
       }
-    }, 20) // kecepatan ngetik (bisa kamu atur)
+    }, 20) 
   }
 
   const handleQuestion = (question: string) => {
@@ -38,8 +38,6 @@ export default function MessageBubble() {
 
       {open && (
         <div className="mb-4 w-80 max-w-[90vw] rounded-2xl border bg-background/80 backdrop-blur-xl shadow-xl overflow-hidden">
-
-          {/* Header */}
           <div className="flex items-center justify-between p-4 border-b">
             <span className="font-medium">Customer Support</span>
             <Button
@@ -54,7 +52,7 @@ export default function MessageBubble() {
           <div className="p-4 text-sm space-y-3">
 
             <div className="bg-muted p-3 rounded-xl">
-              Halo 👋 Pilih pertanyaan di bawah:
+              Halo Pilih pertanyaan di bawah:
             </div>
 
             {faq.map((item, i) => (
@@ -68,8 +66,6 @@ export default function MessageBubble() {
                 {item.question}
               </Button>
             ))}
-
-            {/* Typing Indicator */}
             {typing && (
               <div className="bg-muted p-3 rounded-xl flex gap-1 w-fit">
                 <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
@@ -77,8 +73,6 @@ export default function MessageBubble() {
                 <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-300" />
               </div>
             )}
-
-            {/* Answer (muncul per huruf) */}
             {answer && (
               <div className="bg-primary text-primary-foreground p-3 rounded-xl">
                 {answer}
