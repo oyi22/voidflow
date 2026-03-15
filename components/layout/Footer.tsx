@@ -31,7 +31,7 @@ export default function Footer() {
 
         <div className="grid md:grid-cols-2 gap-16 mb-16">
 
-          {/* Left */}
+          {/* KIRI */}
           <div>
             <div className="inline-flex items-center gap-2 bg-muted border rounded-full px-3 py-1.5 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -58,7 +58,7 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Right */}
+          {/* KANAN */}
           <div className="flex flex-col gap-3">
             {socials.map((s) => {
               const Icon = s.Icon
@@ -90,7 +90,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
+        
         <div className="border-t pt-6 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 rounded-md bg-foreground" />
