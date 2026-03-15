@@ -21,8 +21,6 @@ export default function ChatWidget() {
     if (!message.trim()) return
 
     const reply = getAnswer(message)
-
-    // Tambah pesan user dulu
     setMessages((prev) => [
       ...prev,
       { role: "user", text: message },
@@ -100,8 +98,7 @@ export default function ChatWidget() {
                 </div>
               </div>
             ))}
-
-            {/* Typing Indicator */}
+ 
             {isTyping && (
               <div className="flex justify-start">
                 <div className="bg-muted px-3 py-2 rounded-2xl flex gap-1 w-fit">
@@ -112,8 +109,7 @@ export default function ChatWidget() {
               </div>
             )}
           </div>
-
-          {/* Quick Questions */}
+ 
           <div className="p-3 border-t">
             <div className="flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
               {faq.map((item, i) => (
