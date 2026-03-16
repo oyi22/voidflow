@@ -1,4 +1,7 @@
-import { ArrowUpRight, Mail, Instagram, MessageCircle,Github,} from "lucide-react"
+"use client"
+
+import { ArrowUpRight, Mail, Instagram, MessageCircle, Github } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 const socials = [
   {
@@ -25,40 +28,39 @@ const socials = [
 ]
 
 export default function Footer() {
+  const t = useTranslations("footer")
+
   return (
-    <footer className="border-t bg-background">
+    <footer className="border-t bg-neutral-950 text-white">
       <div className="max-w-4xl mx-auto px-8 py-16">
 
         <div className="grid md:grid-cols-2 gap-16 mb-16">
-
-          {/* KIRI */}
+ 
           <div>
-            <div className="inline-flex items-center gap-2 bg-muted border rounded-full px-3 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span className="text-xs text-muted-foreground tracking-wide">
-                Available for work
+              <span className="text-xs text-white/70">
+                {t("available")}
               </span>
             </div>
 
             <h2 className="text-3xl font-medium leading-tight mb-4">
-              Let&apos;s ship something great.
+              {t("title")}
             </h2>
 
             <p className="text-muted-foreground text-sm leading-relaxed mb-8 max-w-xs">
-              Got a product idea, collab, or just want to geek out?
-              Drop an email — we respond fast.
+              {t("description")}
             </p>
 
             <a
-              href="mailto:hello@voidflow.dev"
-              className="inline-flex items-center gap-2.5 bg-foreground text-background rounded-full px-5 py-3 text-sm font-medium"
+              href="mailto:voidflow83@gmail.com"
+              className="inline-flex items-center gap-2.5 bg-white text-black hover:bg-white/90 transition rounded-full px-5 py-3 text-sm font-medium"
             >
               <Mail className="w-3.5 h-3.5" />
-              hello@voidflow.dev
+              voidflow83@gmail.com
             </a>
           </div>
 
-          {/* KANAN */}
           <div className="flex flex-col gap-3">
             {socials.map((s) => {
               const Icon = s.Icon
@@ -66,7 +68,7 @@ export default function Footer() {
               return (
                 <div
                   key={s.label}
-                  className="flex items-center gap-3.5 bg-muted/50 border rounded-xl px-4 py-3.5"
+                  className="flex items-center gap-3.5 bg-white/5 border border-white/10 rounded-xl px-4 py-3.5"
                 >
                   <div className="w-10 h-10 rounded-lg bg-background border flex items-center justify-center shrink-0 text-muted-foreground">
                     <Icon className="w-4 h-4" />
@@ -90,7 +92,7 @@ export default function Footer() {
           </div>
         </div>
 
-        
+ 
         <div className="border-t pt-6 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 rounded-md bg-foreground" />
@@ -98,13 +100,13 @@ export default function Footer() {
           </div>
 
           <nav className="flex items-center gap-6">
-            {["Work", "Stack", "Blog", "Privacy"].map((link) => (
+            {["work", "stack", "blog", "privacy"].map((key) => (
               <a
-                key={link}
+                key={key}
                 href="#"
                 className="text-xs text-muted-foreground hover:text-foreground transition"
               >
-                {link}
+                {t(key)}
               </a>
             ))}
           </nav>

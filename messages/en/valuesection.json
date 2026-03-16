@@ -1,0 +1,11 @@
+{
+  "value": {
+    "title": "Why Choose Us",
+    "description": "We combine modern technology with clean engineering to build reliable products.",
+    "items": [
+      { "title": "Fast & Efficient", "desc": "We build products quickly without sacrificing quality." },
+      { "title": "Scalable Systems", "desc": "Your product will be ready to grow from day one." },
+      { "title": "Secure Architecture", "desc": "Best practices and modern standards built in." }
+    ]
+  }
+}

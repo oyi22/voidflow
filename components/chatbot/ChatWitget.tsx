@@ -4,24 +4,27 @@ import { useState, useRef, useEffect } from "react"
 import { MessageCircle, X, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { getAnswer } from "@/lib/chat"
-import faq from "@/data/faq.json"
+import { useTranslations, useLocale } from "next-intl"
+import faqId from "@/data/faq.id.json"
+import faqEn from "@/data/faq.en.json"
+
+type Message = { role: "user" | "support"; text: string }
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
-  const [messages, setMessages] = useState<
-    { role: "user" | "support"; text: string }[]
-  >([])
+  const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState("")
   const [isTyping, setIsTyping] = useState(false)
-
+  const t = useTranslations("chatwidget")
+  const locale = useLocale()
+  const faq = locale === "id" ? faqId : faqEn
   const scrollRef = useRef<HTMLDivElement>(null)
-
   const send = (text?: string) => {
     const message = text || input
-    if (!message.trim()) return
-
-    const reply = getAnswer(message)
-    setMessages((prev) => [
+    if (!message.trim()) return 
+    const reply = getAnswer(message, locale)   
+    setMessages((prev: Message[]) => [
+ 
       ...prev,
       { role: "user", text: message },
     ])
@@ -30,8 +33,7 @@ export default function ChatWidget() {
     setIsTyping(true)
     setTimeout(() => {
       setIsTyping(false)
-
-      setMessages((prev) => [
+      setMessages((prev: Message[]) => [
         ...prev,
         { role: "support", text: reply },
       ])
@@ -50,7 +52,7 @@ export default function ChatWidget() {
   }, [messages, isTyping])
 
   return (
-    <> 
+    <>
       <Button
         onClick={() => setOpen(!open)}
         className="fixed bottom-6 right-6 rounded-full w-14 h-14 shadow-xl"
@@ -60,31 +62,29 @@ export default function ChatWidget() {
 
       {open && (
         <div className="fixed bottom-24 right-6 w-80 max-w-[90vw] bg-background/80 backdrop-blur-xl border rounded-2xl shadow-2xl flex flex-col overflow-hidden">
- 
+
           <div className="p-4 border-b flex justify-between items-center text-sm font-medium">
-            <span>Customer Support</span>
+            <span>{t("title")}</span>
             <Button variant="ghost" size="icon" onClick={clearChat}>
               <Trash2 size={16} />
             </Button>
           </div>
- 
+
           <div
             ref={scrollRef}
             className="h-[420px] max-h-[50vh] overflow-y-auto p-4 space-y-3 text-sm"
           >
             {messages.length === 0 && !isTyping && (
               <p className="text-muted-foreground text-center">
-                How can we help you?
+                {t("placeholder")}
               </p>
             )}
 
-            {messages.map((msg, i) => (
+            {messages.map((msg: Message, i: number) => (
               <div
                 key={i}
                 className={`flex ${
-                  msg.role === "user"
-                    ? "justify-end"
-                    : "justify-start"
+                  msg.role === "user" ? "justify-end" : "justify-start"
                 }`}
               >
                 <div
@@ -112,7 +112,7 @@ export default function ChatWidget() {
  
           <div className="p-3 border-t">
             <div className="flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
-              {faq.map((item, i) => (
+              {faq.map((item: { question: string; answer: string }, i: number) => (
                 <Button
                   key={i}
                   size="sm"

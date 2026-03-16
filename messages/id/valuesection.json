@@ -1,0 +1,11 @@
+{
+  "value": {
+    "title": "Kenapa Memilih Kami",
+    "description": "Kami menggabungkan teknologi modern dengan rekayasa yang rapi untuk membangun produk yang andal.",
+    "items": [
+      { "title": "Cepat & Efisien", "desc": "Kami membangun produk dengan cepat tanpa mengorbankan kualitas." },
+      { "title": "Sistem Scalable", "desc": "Produk Anda siap berkembang sejak hari pertama." },
+      { "title": "Arsitektur Aman", "desc": "Best practice dan standar modern sudah terintegrasi." }
+    ]
+  }
+}

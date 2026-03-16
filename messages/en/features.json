@@ -1,0 +1,9 @@
+{
+  "features": {
+    "items": [
+      { "title": "Fast Development", "desc": "Optimized structure for scalability." },
+      { "title": "Modern UI", "desc": "Clean SaaS-style interface." },
+      { "title": "Secure by Design", "desc": "Built with best practices." }
+    ]
+  }
+}

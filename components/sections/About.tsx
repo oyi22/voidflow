@@ -1,15 +1,21 @@
+import { useTranslations } from "next-intl"
+
 export default function About() {
+
+  const t = useTranslations("about")
+
   return (
-    <section className="py-24 px-6 bg-muted/30">
+    <section id="about" className="py-28 px-6 bg-muted/40">
       <div className="max-w-3xl mx-auto text-center space-y-6">
-        <h2 className="text-3xl font-semibold">
-          Why Voidflow
+
+        <h2 className="text-4xl font-semibold">
+          {t("title")}
         </h2>
 
         <p className="text-muted-foreground leading-relaxed">
-          We focus on building the invisible infrastructure behind modern products 
-          clean, efficient, and scalable systems that power real growth.
+          {t("description")}
         </p>
+
       </div>
     </section>
   )

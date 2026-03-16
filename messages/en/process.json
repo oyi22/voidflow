@@ -1,0 +1,12 @@
+{
+  "process": {
+    "title": "How We Work",
+    "description": "Our process ensures your product is built the right way.",
+    "steps": [
+      { "title": "Discovery", "desc": "Understanding your goals and product vision." },
+      { "title": "Planning", "desc": "Designing architecture and user experience." },
+      { "title": "Development", "desc": "Building your product using modern technologies." },
+      { "title": "Launch", "desc": "Deploying and optimizing your product." }
+    ]
+  }
+}

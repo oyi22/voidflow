@@ -1,0 +1,10 @@
+{
+  "services": {
+    "title": "Layanan Kami",
+    "items": [
+      { "title": "Pengembangan Website", "desc": "Website profesional untuk bisnis, startup, dan personal brand dengan teknologi modern." },
+      { "title": "Aplikasi Web", "desc": "Dashboard custom, platform SaaS, dan tools internal yang efisien serta scalable." },
+      { "title": "Konsultasi IT", "desc": "Kami membantu merancang arsitektur dan teknologi yang tepat untuk produk Anda." }
+    ]
+  }
+}

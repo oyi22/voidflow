@@ -2,16 +2,19 @@
 
 import { Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/components/language/LanguageProvider"
+import { useRouter, usePathname } from "next/navigation"
 
 export default function LanguageToggle() {
-  const { lang, setLang } = useLanguage()
+  const router = useRouter()
+  const pathname = usePathname()
 
   const toggle = () => {
-    setLang(lang === "id" ? "en" : "id")
+    const newLocale = pathname.startsWith("/en") ? "id" : "en"
+    const newPath = pathname.replace(/^\/(en|id)/, `/${newLocale}`)
+    router.push(newPath)
   }
 
-  return (
+  return  (
     <Button
       variant="ghost"
       size="icon"

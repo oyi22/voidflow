@@ -1,0 +1,9 @@
+{
+  "features": {
+    "items": [
+      { "title": "Pengembangan Cepat", "desc": "Struktur yang dioptimalkan untuk skalabilitas." },
+      { "title": "UI Modern", "desc": "Interface bergaya SaaS yang bersih." },
+      { "title": "Aman Sejak Awal", "desc": "Dibangun dengan best practice." }
+    ]
+  }
+}

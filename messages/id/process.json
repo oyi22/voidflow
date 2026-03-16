@@ -1,0 +1,12 @@
+{
+  "process": {
+    "title": "Cara Kerja Kami",
+    "description": "Proses kami memastikan produk Anda dibangun dengan cara yang tepat.",
+    "steps": [
+      { "title": "Discovery", "desc": "Memahami tujuan dan visi produk Anda." },
+      { "title": "Perencanaan", "desc": "Merancang arsitektur dan pengalaman pengguna." },
+      { "title": "Pengembangan", "desc": "Membangun produk menggunakan teknologi modern." },
+      { "title": "Peluncuran", "desc": "Deploy dan optimasi produk Anda." }
+    ]
+  }
+}

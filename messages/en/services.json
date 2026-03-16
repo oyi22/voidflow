@@ -1,0 +1,10 @@
+{
+  "services": {
+    "title": "Our Services",
+    "items": [
+      { "title": "Website Development", "desc": "Professional websites for businesses, startups, and personal brands built with modern technologies." },
+      { "title": "Web Applications", "desc": "Custom dashboards, SaaS platforms, and internal tools designed for efficiency and scalability." },
+      { "title": "IT Consulting", "desc": "We help you design the right architecture and technology stack for your product." }
+    ]
+  }
+}

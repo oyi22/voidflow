@@ -3,12 +3,18 @@
 import { useState } from "react"
 import { MessageCircle, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import faq from "@/data/faq.json"
+import { useLocale } from "next-intl"
+import faqId from "@/data/faq.id.json"
+import faqEn from "@/data/faq.en.json"
+
+type FaqItem = { question: string; answer: string }
 
 export default function MessageBubble() {
   const [open, setOpen] = useState(false)
   const [typing, setTyping] = useState(false)
   const [answer, setAnswer] = useState("")
+  const locale = useLocale()
+  const faq = locale === "id" ? faqId : faqEn
 
   const typeText = (text: string) => {
     setTyping(true)
@@ -23,11 +29,11 @@ export default function MessageBubble() {
         clearInterval(interval)
         setTyping(false)
       }
-    }, 20) 
+    }, 20)
   }
 
   const handleQuestion = (question: string) => {
-    const found = faq.find((item) => item.question === question)
+    const found = faq.find((item: FaqItem) => item.question === question)
     if (found) {
       typeText(found.answer)
     }
@@ -38,8 +44,8 @@ export default function MessageBubble() {
 
       {open && (
         <div className="mb-4 w-80 max-w-[90vw] rounded-2xl border bg-background/80 backdrop-blur-xl shadow-xl overflow-hidden">
+
           <div className="flex items-center justify-between p-4 border-b">
-            <span className="font-medium">Customer Support</span>
             <Button
               variant="ghost"
               size="icon"
@@ -50,12 +56,7 @@ export default function MessageBubble() {
           </div>
 
           <div className="p-4 text-sm space-y-3">
-
-            <div className="bg-muted p-3 rounded-xl">
-              Halo Pilih pertanyaan di bawah:
-            </div>
-
-            {faq.map((item, i) => (
+            {faq.map((item: FaqItem, i: number) => (
               <Button
                 key={i}
                 size="sm"
@@ -66,6 +67,7 @@ export default function MessageBubble() {
                 {item.question}
               </Button>
             ))}
+
             {typing && (
               <div className="bg-muted p-3 rounded-xl flex gap-1 w-fit">
                 <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
@@ -73,12 +75,12 @@ export default function MessageBubble() {
                 <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-300" />
               </div>
             )}
+
             {answer && (
               <div className="bg-primary text-primary-foreground p-3 rounded-xl">
                 {answer}
               </div>
             )}
-
           </div>
         </div>
       )}

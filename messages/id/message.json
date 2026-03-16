@@ -1,0 +1,12 @@
+{
+  "message": {
+    "title": "Mulai Proyek Anda",
+    "name": "Nama",
+    "email": "Email",
+    "details": "Detail Proyek",
+    "button": "Kirim Pesan",
+    "sending": "Mengirim...",
+    "success": "Pesan terkirim",
+    "error": "Gagal 😢"
+  }
+}

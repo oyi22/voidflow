@@ -1,0 +1,12 @@
+{
+  "message": {
+    "title": "Start Your Project",
+    "name": "Name",
+    "email": "Email",
+    "details": "Project Details",
+    "button": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent",
+    "error": "Failed 😢"
+  }
+}
