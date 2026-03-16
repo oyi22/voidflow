@@ -19,6 +19,12 @@ export default function Message({ trigger }: MessageProps) {
   const [loading, setLoading] = useState(false)
   const t = useTranslations("message")
 
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setTimeout(() => {
+      e.target.scrollIntoView({ behavior: "smooth", block: "center" })
+    }, 300)
+  }
+
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
@@ -53,7 +59,7 @@ export default function Message({ trigger }: MessageProps) {
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
 
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>{t("title")}</DialogTitle>
           <DialogDescription className="sr-only">{t("title")}</DialogDescription>
@@ -62,11 +68,11 @@ export default function Message({ trigger }: MessageProps) {
         <form onSubmit={sendEmail} className="space-y-4">
           <div className="space-y-2">
             <Label>{t("name")}</Label>
-            <Input name="name" required />
+            <Input name="name" required onFocus={handleFocus} />
           </div>
           <div className="space-y-2">
             <Label>{t("email")}</Label>
-            <Input name="email" type="email" required />
+            <Input name="email" type="email" required onFocus={handleFocus} />
             <Alert variant="default" className="py-2 px-3">
               <InfoIcon className="h-4 w-4" />
               <AlertDescription className="text-xs">
@@ -76,7 +82,7 @@ export default function Message({ trigger }: MessageProps) {
           </div>
           <div className="space-y-2">
             <Label>{t("details")}</Label>
-            <Textarea name="message" required />
+            <Textarea name="message" required onFocus={handleFocus} />
           </div>
           <Button className="w-full" disabled={loading}>
             {loading ? t("sending") : t("button")}
