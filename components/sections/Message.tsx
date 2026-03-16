@@ -59,35 +59,43 @@ export default function Message({ trigger }: MessageProps) {
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
 
-      <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
+      <DialogContent className="sm:max-w-md flex flex-col max-h-[90vh] p-0">
+        <DialogHeader className="px-6 pt-6 pb-2 shrink-0">
           <DialogTitle>{t("title")}</DialogTitle>
           <DialogDescription className="sr-only">{t("title")}</DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={sendEmail} className="space-y-4">
-          <div className="space-y-2">
-            <Label>{t("name")}</Label>
-            <Input name="name" required onFocus={handleFocus} />
-          </div>
-          <div className="space-y-2">
-            <Label>{t("email")}</Label>
-            <Input name="email" type="email" required onFocus={handleFocus} />
-            <Alert variant="default" className="py-2 px-3">
-              <InfoIcon className="h-4 w-4" />
-              <AlertDescription className="text-xs">
-                {t("emailNote")}
-              </AlertDescription>
-            </Alert>
-          </div>
-          <div className="space-y-2">
-            <Label>{t("details")}</Label>
-            <Textarea name="message" required onFocus={handleFocus} />
-          </div>
-          <Button className="w-full" disabled={loading}>
-            {loading ? t("sending") : t("button")}
-          </Button>
-        </form>
+        <div className="overflow-y-auto flex-1 px-6 pb-6">
+          <form onSubmit={sendEmail} className="space-y-4">
+            <div className="space-y-2">
+              <Label>{t("name")}</Label>
+              <Input name="name" required onFocus={handleFocus} />
+            </div>
+            <div className="space-y-2">
+              <Label>{t("email")}</Label>
+              <Input name="email" type="email" required onFocus={handleFocus} />
+              <Alert variant="default" className="py-2 px-3">
+                <InfoIcon className="h-4 w-4" />
+                <AlertDescription className="text-xs">
+                  {t("emailNote")}
+                </AlertDescription>
+              </Alert>
+            </div>
+            <div className="space-y-2">
+              <Label>{t("details")}</Label>
+              <Textarea
+                name="message"
+                required
+                onFocus={handleFocus}
+                className="min-h-[120px] resize-none"
+              />
+            </div>
+            <Button className="w-full" disabled={loading}>
+              {loading ? t("sending") : t("button")}
+            </Button>
+          </form>
+        </div>
+
       </DialogContent>
     </Dialog>
   )
