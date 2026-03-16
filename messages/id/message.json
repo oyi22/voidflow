@@ -7,6 +7,7 @@
     "button": "Kirim Pesan",
     "sending": "Mengirim...",
     "success": "Pesan terkirim",
-    "error": "Gagal 😢"
+    "error": "Gagal 😢",
+    "emailNote": "Pastikan menggunakan email aktif agar kami bisa membalas pesan kamu."
   }
 }

@@ -7,6 +7,7 @@
     "button": "Send Message",
     "sending": "Sending...",
     "success": "Message sent",
-    "error": "Failed 😢"
+    "error": "Failed 😢",
+    "emailNote": "Make sure to use your active email address so we can get back to you."
   }
 }
