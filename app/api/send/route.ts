@@ -9,10 +9,12 @@ export async function POST(req: NextRequest) {
     }
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS, 
+        pass: process.env.MAIL_PASS,
       },
     })
 
@@ -31,8 +33,14 @@ export async function POST(req: NextRequest) {
     })
 
     return NextResponse.json({ success: true })
-  } catch (err) {
-    console.error(err)
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 })
+  } catch (err: any) {  
+    console.error("Message:", err?.message)
+    console.error("Code:", err?.code)
+    console.error("Command:", err?.command) 
+
+    return NextResponse.json(
+      { error: err?.message ?? "Failed to send email" },
+      { status: 500 }
+    )
   }
 }
