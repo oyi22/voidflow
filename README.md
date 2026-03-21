@@ -28,7 +28,7 @@ Voidflow adalah platform modern untuk membangun dan meluncurkan produk digital y
 ### 1. Clone repository
 
 ```
-git clone https://github.com/username/voidflow.git
+git clone https://github.com/oyi22/voidflow.git
 cd voidflow
 ```
 
