@@ -53,7 +53,7 @@ npm run dev
 ### 4. Buka di browser
 
 ```
-http://localhost:3000
+http://localhost:3000/en 
 ```
 
 ---
@@ -70,18 +70,6 @@ http://localhost:3000
 
 ---
 
-## Development
-
-Untuk mulai mengedit halaman utama:
-
-```
-app/page.tsx
-```
-
-Perubahan akan langsung terlihat di browser (hot reload).
-
----
-
 ## Deployment
 
 Direkomendasikan menggunakan Vercel untuk deployment:
@@ -91,8 +79,4 @@ npm run build
 npm start
 ```
 
----
 
-## License
-
-MIT License
