@@ -12,7 +12,6 @@ export default function Page() {
   return (
     <>
       <Navbar />
-
       <main className="space-y-28">
         <Hero />
         <Services />

@@ -5,7 +5,6 @@ const supportedLocales = ["en", "id"]
 
 export default getRequestConfig(async ({ requestLocale }) => {
   const locale = await requestLocale
-
   if (!locale || !supportedLocales.includes(locale)) notFound()
 
   const messages = Object.assign(
